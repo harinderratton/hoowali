@@ -6,6 +6,15 @@
                     <div class="container-fluid">
                         <div class="row">
                               <div class="col-lg-6">
+
+                                   <div class="table-data__tool">
+                                  <div class="table-data__tool-right">
+                                    <a href="{{route('admin.vip_training_list')}}"> <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                  <i class="zmdi zmdi-plus"></i>Show published list</button></a>                            
+
+                                  </div>
+                                   </div>
+                                   
                                 <div class="card">
                                      <form class="form-horizontal" id="weekly">
                                     {{csrf_field()}}

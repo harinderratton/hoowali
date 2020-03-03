@@ -178,7 +178,7 @@ function send(){
 
    
 }
- var socket = io('http://harinderorg.com:3002');
+ var socket = io('http://13.58.91.205:3002');
  socket.on('admin_get', function(data){
             if($('#chatbox').attr('newid')==data.id){
                         $('#chatbox').append('<div class="recei-mess-wrap"> <div class="recei-mess__inner"> <div class="avatar avatar--tiny"> <img src="{{URL("public/admin/images/icon/default-avatar.png")}}" > </div> <div class="recei-mess-list"> <div class="recei-mess">'+data.message+'</div> </div> </div> </div>');

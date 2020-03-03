@@ -8,26 +8,31 @@
                              <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">Published Weekly Offers</h3>
+                                <h3 class="title-5 m-b-35">Published Free Training</h3>
                  
                                <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
                                         <thead>
                                             <tr>
-                                                <th>Title</th> 
-                                                 <th>Descreption</th>                               
-                                              
-                                                <th></th>
+                                              <th>Title</th> 
+                                              <th>Descreption</th> 
+                                              <th>Video</th>
+                                              <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                           @foreach($data as $weekly)
-                                            <tr class="tr-shadow" id="{{$weekly->id.'id'}}">
+                                            <tr class="tr-shadow thisrow" id="{{$weekly->id.'id'}}">
                                             
                                                 <td>{{$weekly->title}}</td>
                                                 <td>
-                                                    <span class="block-email">{{$weekly->desc}}</span>
+                                                    <span class="block-email">{{$weekly->descr}}</span>
                                                 </td>
+
+                                                        <td>
+                                                  <iframe width="260" height="115" src="{{$weekly->video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                </td>
+                                            
                                             
                                                 <td>
                                                     <div class="table-data-feature">
@@ -56,25 +61,33 @@
 
 @section('script')
 <script>
+
+
    $(document).on('click','.deletebtn',function(){
-    console.log($(this).attr('id'));
-   });
- 
-  $.ajax({
+    var id= $(this).attr('id');
+    var rowid = $(this).closest('tr').attr('id');
+       
+    swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this data!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+       $.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 type:'POST',
-                url:"{{route('admin.send_fcm')}}",
-                data: new FormData(form),
-                contentType: false, 
-                cache: false, 
-                processData:false,
+                url:"{{route('admin.delete_free_training')}}",
+                data: {id:id},
+               
                 success:function(data)
                    { 
                     var status = $.parseJSON(data);
                     if(status.status==1){
-                         $('#weekly ')[0].reset();
-                          swal({
-                        text:status.msg ,
-                      });                     
+                     $('#'+rowid).remove();
+
                     }
                   if(status.status==1) 
                   { 
@@ -84,7 +97,15 @@
                   }   
                    
                    }
-           });
+           });   
+
+
+  }
+});
+    
+   });
+ 
+
 
 </script>
 @endsection('script')

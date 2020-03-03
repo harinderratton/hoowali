@@ -22,7 +22,7 @@ class admin extends Controller
   public function logout(Request $request)
   {
     Auth::logout();
-    return redirect()->route('adminlogin');
+    return redirect()->route('login');
 
   }
 
@@ -105,7 +105,7 @@ class admin extends Controller
      $query= weekly::where('id',$request->id)->delete();
      if($query){			
 			$response['status']=1;
-			$response['msg']='Offer has been published';
+			$response['msg']='Offer has been deleted';
      }
      else{			
 			$response['status']=0;
@@ -143,7 +143,7 @@ class admin extends Controller
       $query= weekly::where('id',$request->id)->delete();
       if($query){			
        $response['status']=1;
-       $response['msg']='Offer has been published';
+       $response['msg']='Event has been deleted';
       }
       else{			
        $response['status']=0;
@@ -185,20 +185,7 @@ class admin extends Controller
     
     }
 
-       public function delete_free_training(Request $request)
-    {
-      $response=[]; 	
-      $query= weekly::where('id',$request->id)->delete();
-      if($query){			
-       $response['status']=1;
-       $response['msg']='Offer has been published';
-      }
-      else{			
-       $response['status']=0;
-       $response['msg']='Server error';
-      }
-     echo json_encode($response);
-    }
+
 
 
     public function vip_training(Request $request)
@@ -226,21 +213,7 @@ class admin extends Controller
     
     }
 
-       public function delete_vip_training(Request $request)
-    {
-      $response=[]; 	
-      $query= weekly::where('id',$request->id)->delete();
-      if($query){			
-       $response['status']=1;
-       $response['msg']='Offer has been published';
-      }
-      else{			
-       $response['status']=0;
-       $response['msg']='Server error';
-      }
-     echo json_encode($response);
-    }
-
+ 
 
     public function news(Request $request)
     {
@@ -263,13 +236,21 @@ class admin extends Controller
     
     }
 
+           public function news_list(Request $request)
+    {
+     
+      $query= news::get();
+     return view('admin.newslist',array('data'=>$query));
+    }
+
+
        public function delete_news(Request $request)
     {
       $response=[]; 	
-      $query= weekly::where('id',$request->id)->delete();
+      $query= news::where('id',$request->id)->delete();
       if($query){			
        $response['status']=1;
-       $response['msg']='Offer has been published';
+       $response['msg']='News has been deleted';
       }
       else{			
        $response['status']=0;
@@ -434,8 +415,99 @@ class admin extends Controller
           public function weeklylist(Request $request)
     {
       $query=  weekly::get();
-      return view('admin.table',array('data'=>$query));
+      return view('admin.weeklylist',array('data'=>$query));
     }
+
+           public function eventlist(Request $request)
+    {
+      $query=  free_events::get();
+      return view('admin.eventslist',array('data'=>$query));
+    }
+
+            public function free_training_list(Request $request)
+    {
+      $query=  free_training::get();
+      return view('admin.freetraining_list',array('data'=>$query));
+    }
+
+              public function vip_training_list(Request $request)
+    {
+      $query=  vip::get();
+      return view('admin.viptraining_list',array('data'=>$query));
+    }
+
+          public function delete_event(Request $request)
+    {
+      $response=[];   
+      $query= free_events::where('id',$request->id)->delete();
+      if($query){     
+       $response['status']=1;
+       $response['msg']='Event has been deleted';
+      }
+      else{     
+       $response['status']=0;
+       $response['msg']='Server error';
+      }
+     echo json_encode($response);
+    }
+
+              public function delete_free_training(Request $request)
+    {
+      $response=[];   
+      $query= free_training::where('id',$request->id)->delete();
+      if($query){     
+       $response['status']=1;
+       $response['msg']='Training has been deleted';
+      }
+      else{     
+       $response['status']=0;
+       $response['msg']='Server error';
+      }
+     echo json_encode($response);
+    }
+
+                public function delete_vip_training(Request $request)
+    {
+      $response=[];   
+      $query= vip::where('id',$request->id)->delete();
+      if($query){     
+       $response['status']=1;
+       $response['msg']='Training has been deleted';
+      }
+      else{     
+       $response['status']=0;
+       $response['msg']='Server error';
+      }
+     echo json_encode($response);
+    }
+
+               public function vip_user_list(Request $request)
+    {
+      $query=  vip_users::get();
+      return view('admin.vip_user_list',array('data'=>$query));
+    }
+    
+                  public function vip_user_delete(Request $request)
+    {
+      $response=[];   
+      $query= vip_users::where('id',$request->id)->delete();
+      if($query){     
+       $response['status']=1;
+       $response['msg']='User has been deleted';
+      }
+      else{     
+       $response['status']=0;
+       $response['msg']='Server error';
+      }
+     echo json_encode($response);
+    }
+
+                  public function privacy_policy(Request $request)
+    {
+       return view('admin.privacy_policy');
+    }
+
+
 
 
 }

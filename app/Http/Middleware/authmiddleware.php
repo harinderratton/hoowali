@@ -19,7 +19,7 @@ class authmiddleware
            
         }
         else{
-            return redirect()->route('adminlogin');
+            return redirect()->route('login');
         }
 
         return $next($request);

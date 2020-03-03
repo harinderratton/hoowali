@@ -180,17 +180,7 @@ class web extends Controller
        $response=[]; 
       
        $query= chat::insert(['sender_id'=>$request->token,'reciever_id'=>1,'msg'=>$request->msg]);
-      if($query){    
-           $data = array(       
-          'subject' =>'query',
-          'bodyMessage' =>$request->msg,
-          'postersemail' =>'harindersindiit@gmail.com');
-          Mail::send('admin.mailmessage',$data,function($message) use ( $data)
-           {      
-                $message->to( $data['postersemail'] );
-                $message->subject($data['subject']); 
-                     
-          });
+      if($query){        
   
         $response['status'] =1; 
          }
