@@ -1,0 +1,38 @@
+.aftr_log{
+    ion-img{
+        width: 130px;
+        margin: 0 auto;
+        height: 130px;
+        border-radius: 50%;
+    }
+    .user_info{
+        text-align:center;
+        h5{
+            font-family: 'Montserrat', sans-serif;
+            color:#fff;
+            font-weight:normal;
+            font-size:18px;
+        }
+        h6{
+            font-family: 'Montserrat', sans-serif;
+            color:#fff;
+            font-weight:700;
+            font-size:18px;
+        }
+    }
+    .log_menu{
+        ion-list{
+			text-align: center;
+			padding-top: 0;
+			padding-bottom: 0;
+            ion-item{
+                font-size: 18px;
+                text-align:center;
+                ion-label{
+                    font-family: "Montserrat", sans-serif;
+                }
+            }
+        }
+    }
+    
+}

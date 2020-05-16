@@ -1,0 +1,20 @@
+[menu_header]{
+    ion-toolbar{
+    --background:#80b25a;
+    }
+}
+
+[reg_steps] {
+    [reg_box] 
+    {
+        .top_hdr{
+            h6{
+                font-family: 'Montserrat', sans-serif;
+                
+            }
+        }   
+        .btm_hdr{
+            justify-content: space-between;
+        }
+    }
+}

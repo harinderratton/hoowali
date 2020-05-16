@@ -1,0 +1,16 @@
+[menu_header]{
+    ion-toolbar{
+    --background:#80b25a;
+    }
+}
+.register_box{
+    ion-item{
+        max-height: 86px !important;
+        ion-label{
+            margin-bottom:5px;
+        }
+        ion-input{
+            --padding-bottom: 5px;
+        }
+    }
+}

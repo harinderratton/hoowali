@@ -1,0 +1,49 @@
+<ion-header menu_header>
+  <ion-toolbar>
+      <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content map-page>
+
+  <agm-map
+  [style.height.px]="height"
+  [latitude]="lat"
+  [longitude]="lng"
+  >
+    <agm-marker 
+    [latitude]="lat" 
+    [longitude]="lng"
+    [iconUrl] ="
+  {
+    url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSQi49NlO9ZlR_d2UQDXL8GNajcxoxdj6_2GbNVJawSyJpgVMvg&usqp=CAU',
+    scaledSize: {
+        width: 40,
+        height: 60
+    }}"
+    ></agm-marker>
+ </agm-map>
+
+    <div class="search_box">
+      <h5>Find a Direct Sales Representative</h5>      
+      <ion-item comapny>
+        <ion-label position="fixed">Company </ion-label>
+        <ion-input placeholder="Ex: Herbalife, Avon, Amway..."></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="fixed">Where? </ion-label>
+        <ion-input placeholder=""></ion-input>
+      </ion-item>
+      <ion-button><ion-icon slot="start" name="search"></ion-icon> Search</ion-button>
+
+      <h6>Are you a consultant ? <span routerLink="/reg-one">Register Here</span></h6>
+     
+
+
+    </div>
+  
+  
+</ion-content>

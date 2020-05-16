@@ -1,0 +1,64 @@
+[menu_header]{
+  position:absolute;
+  &:after{
+  display:none;
+  }
+}
+[map-page]{
+  --padding-start: 0px;
+  --padding-end: 0px;
+  text-align:center;
+  position:relative;
+  .search_box{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding-bottom: 20px;
+    z-index:99;
+    padding: 0 25px;
+    ion-item{
+      border-radius: 10px;
+      box-shadow: 0 0 2px #333;
+      margin-bottom: 15px;
+      --padding-start: 0;
+	  --highlight-height: none;
+      ion-label{
+        font-family: 'Montserrat', sans-serif;
+        font-weight:700;
+        font-size:14px;
+        text-align:center;
+      }
+      ion-input{font-family: 'Montserrat', sans-serif;
+        font-size:14px;
+      }
+    }
+    [comapny]{
+      ion-label{
+        color:#80b25a;
+      }
+    }
+    h5{
+      font-family: 'Montserrat', sans-serif;
+      color:#767777;
+      font-weight:700;
+    }
+    h6{
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom:15px;
+      span{
+        font-weight:700;
+        color: #80b25a;
+      }
+    }
+    ion-button
+    {
+      font-family: "Montserrat", sans-serif;
+      --background: #80b25a;
+      --border-radius: 0;
+      font-size: 16px;
+        
+    }
+  }
+}

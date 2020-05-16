@@ -1,0 +1,171 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap');
+/*================Menu===================*/
+[menu_header]{
+    ion-toolbar{
+        --border-width: 0 !important;
+        --background: transparent;
+        ion-menu-button{
+            --background: #80b25a;
+            --color: #fff;
+            --border-radius: 50%;
+            height: 40px;
+            width: 40px;
+        }
+    }
+	&:after{
+		display:none;
+	}
+}
+
+[app_menu]{
+    ion-content{
+        --background:#80b25a;
+        ion-item{
+            --border-width: 0;
+            --background: #80b25a;
+            --color: #fff;
+            max-height: 38px;
+        }
+        [top_nav]{
+            position:relative;
+			padding-top:0;
+			padding-bottom:0;
+            ion-item{
+                font-weight:700;
+                font-size:20px;
+                font-family: 'Montserrat', sans-serif;
+            }
+        }
+        [bottom_nav]{
+            position:relative;
+			padding-top:0;
+			padding-bottom:0;
+            ion-item{
+                font-size:20px;
+                font-family: 'Montserrat', sans-serif;
+            }
+        }
+    }
+}
+
+.app_menu {
+    position: relative;
+    height: 100%;
+    padding-top: 25px;
+    padding-bottom: 20px;
+  
+    .bottom_nav {
+        position: absolute;
+        bottom: 25px;
+        width: 100%;
+    }
+}
+
+/*==================Register Box==================*/
+[reg_steps]{
+    --background: #80b25a;
+    --color: #fff;
+    --padding-start: 25px;
+    --padding-end: 25px;
+    [reg_box]{
+        display: flex;
+        height: 100%;
+        flex-wrap: wrap;
+        position: relative;
+    .top_hdr{
+        width: 100%;
+        text-align:center;
+        h5{
+            font-size:16px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-align:center;
+            position:relative;
+            margin-top: 10px;
+            margin-bottom: 0;
+            &:after{
+               content: "";
+                display: block;
+                height: 30px;
+                width: 60px;
+                margin: 0 auto;
+                background-image:url(assets/hdr-after.png);
+                background-size: 100%;
+                margin-top: 4px;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+    .register_box{
+        width:100%;
+        ion-item{
+            --background: transparent;
+            color: #fff;
+            text-align: center;
+            border-bottom: 1px solid #fff;
+            max-height: 55px !important;
+            margin-bottom: 15px;
+            ion-label{
+                font-family: "Montserrat", sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+				margin: 0 auto;
+                margin-bottom: -12px;
+            }
+            ion-input{
+                font-family: "Montserrat", sans-serif;
+                --padding-bottom: 0;
+                --placeholder-opacity: 1;
+                font-size: 15px;
+                --padding-top: 0;
+            }
+        }
+    }
+    .btm_hdr{
+        width: 100%;
+        margin-bottom: 15px;
+        text-align: right;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        h5{
+            font-size:16px;
+            font-weight:700;
+            text-transform:uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+    }
+  }
+}
+
+
+.gm-style > div > div > div > div > img {
+    border-radius: 50%;
+    max-height: 42px;
+}

@@ -1,0 +1,38 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="content1" app_menu>
+      <ion-content>
+
+        <div class="app_menu">
+          <div class="aftr_log">
+            <ion-img src="assets/profile.png"></ion-img>
+            <div class="user_info">
+              <h5>Edit Profile Picture</h5>
+              <h6>Maria Lopez</h6>
+            </div>
+            <div class="log_menu">
+              <ion-list>
+                <ion-item routerLink="/personal-info" detail="false" (click)="close()">
+                  <ion-label>Personal Info</ion-label></ion-item>
+                <ion-item routerLink="/reg-one" detail="false" (click)="close()"><ion-label>Log Out</ion-label></ion-item>
+              </ion-list>
+            </div>
+          </div>
+       
+        
+
+        <div class="bottom_nav">
+          <ion-list *ngFor="let pages of navigate" bottom_nav>
+            <ion-menu-toggle auto-hide="true">
+              <ion-item [routerLink]="pages.url" lines="none" detail="false">
+                     {{pages.title}} 
+              </ion-item>
+            </ion-menu-toggle>
+            </ion-list>
+        </div>
+      </div>
+
+
+      </ion-content>
+    </ion-menu>
+<ion-router-outlet id="content1"></ion-router-outlet>
+</ion-app>
