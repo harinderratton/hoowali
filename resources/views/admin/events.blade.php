@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="card-body card-block">
                                        
-                                                                                   <div class="row form-group">
+                                    <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Event Title</label>
                                                 </div>
@@ -114,10 +114,12 @@ $(function($) {
             },
        submitHandler: function(form) 
        { 
+              var formData = new FormData(form);
+              formData.append('desc',CKEDITOR.instances['desc'].getData());
                 $.ajax({
                 type:'POST',
                 url:"{{route('admin.add_free_events')}}",
-                data: new FormData(form),
+                data: formData,
                 contentType: false, 
                 cache: false, 
                 processData:false,
@@ -145,4 +147,7 @@ $(function($) {
 });
 
 </script>
+    <script>
+        CKEDITOR.replace( 'desc' );
+    </script>
 @endsection('script')

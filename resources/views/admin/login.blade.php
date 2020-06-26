@@ -20,7 +20,7 @@
 
     <!-- Bootstrap CSS-->
     <link href="{{URL('public/admin/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
-
+      <link rel="icon" href="{{URL('public/admin/images/icon/logo.png')}}">
     <!-- Vendor CSS-->
     <link href="{{URL('public/admin/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
     <link href="{{URL('public/admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">
@@ -43,18 +43,18 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="{{URL('public/admin/images/icon/logo.png')}}" alt="Latin Branding" width="50%">
+                                 <img src="{{URL('public/admin/images/logo.png')}}" alt="Latin Branding" width="50%"/>
                             </a>
                         </div>
                       <div class="login-form">
                             <form id="login_form">
                                 {{csrf_field()}}
                                 <div class="form-group">
-                                    <label>Email Address</label>
+                                    <label style="color:white">Email Address</label>
                                     <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label  style="color:white">Password</label>
                                     <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
                                 </div>
                              

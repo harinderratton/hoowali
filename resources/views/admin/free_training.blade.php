@@ -18,7 +18,7 @@
                                      <form class="form-horizontal" id="weekly">
                                     {{csrf_field()}}
                                     <div class="card-header">
-                                        <strong>Free</strong> Training
+                                        <strong>FULL</strong> Videos
                                     </div>
                                     <div class="card-body card-block">
                                        

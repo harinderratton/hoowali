@@ -15,6 +15,8 @@
                                                         <p class="chat-las">Chat List </p>
                                                   
                                                     </div>
+                                                  
+                                                    @if(count($chats)>0)
                                                     <div class="au-message-list mCustomScrollbar">
                                                             <?php
                                                             $i=1;
@@ -44,13 +46,16 @@
                                                         <?php
                                                         $i++;
                                                         ?>
-                                                        @endforeach                            
-                                                                           
+                                                        @endforeach                                                       
                                                   
                                                    
                                                     </div>
+                                                  @endif
+
                                                 </div>
                                             </div>
+
+                                            @if(count($singlechat)>0)
                                             <div class="col-md-8 p-0">
                                                 <div class="au-chat">
                                                     <div class="au-chat__title">
@@ -112,6 +117,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>
@@ -178,7 +186,7 @@ function send(){
 
    
 }
- var socket = io('http://13.58.91.205:3002');
+ var socket = io('http://13.58.91.205:3001');
  socket.on('admin_get', function(data){
             if($('#chatbox').attr('newid')==data.id){
                         $('#chatbox').append('<div class="recei-mess-wrap"> <div class="recei-mess__inner"> <div class="avatar avatar--tiny"> <img src="{{URL("public/admin/images/icon/default-avatar.png")}}" > </div> <div class="recei-mess-list"> <div class="recei-mess">'+data.message+'</div> </div> </div> </div>');

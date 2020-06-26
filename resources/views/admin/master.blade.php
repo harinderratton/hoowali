@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Latin Braning</title>
+    <title>Admin Panel</title>
 
     <!-- Fontfaces CSS-->
     <link href="{{URL('public/admin/css/font-face.css')}}" rel="stylesheet" media="all">
@@ -44,7 +44,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="{{URL('public/admin/images/icon/logo.png')}}" alt="Latin Branding" />
+                           <img src="{{URL('public/admin/images/logo.png')}}" alt="Latin Branding" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -60,39 +60,48 @@
 
                         <li >
                                     <a href="{{route('admin.messages')}}" >
-                                        <i class="fas fa-paper-plane"></i>Messages
+                                        <i class="fas fa-paper-plane"></i>Push Notifications
                                     </a>
                         </li>
 
                         <li >
-                            <a href="{{route('admin.messages')}}" >
-                                <i class="fas fa-comments"></i>Messages
+                            <a href="{{route('admin.live_stream')}}" >
+                                <i class="fas fa-tags"></i>Live Stream
 							</a>
                         </li>
 
-                        <li>
-                            <a href="{{route('admin.weekly')}}">
-                                <i class="fas fa-tags"></i>Weekly Offers
-							</a>
-                        </li>
-
+                  
                        <li>
                         <a href="{{route('admin.free_events')}}">
-                          <i class="fa fa-calendar" aria-hidden="true"></i>Free Events
+                          <i class="fa fa-calendar" aria-hidden="true"></i>Events
 						</a>
                     </li>
 
-                      <li>
-                        <a href="{{route('admin.free_training')}}">
-                            <i class="fa fa-user-circle" ></i>Free Trainings
-						</a>
+                    <li>
+                        <a href="{{route('admin.free_events1')}}">
+                          <i class="fa fa-calendar" aria-hidden="true"></i>Events 1
+                        </a>
                     </li>
 
-                      <li>
+                          <li>
+                            <a href="{{route('admin.short')}}">
+                                <i class="fas fa-tags"></i>Short Videos
+                            </a>
+                        </li>
+
+
+                     <li>
                         <a href="{{route('admin.vip_training')}}">
-                            <i class="fas fa-star"></i>Vip Trainings
+                            <i class="fa fa-user-circle" ></i>Full Videos
 						</a>
                     </li>
+
+                    <li>
+                        <a href="{{route('admin.change_picture')}}">
+                            <i class="fas fa-star"></i>Change Picture
+						</a>
+                    </li>
+                       <!-- 
 
                     <li>
                         <a href="{{route('admin.news')}}">
@@ -104,7 +113,7 @@
                         <a href="{{route('admin.news')}}">
                             <i class="fa fa-user-plus"></i>Register VIP
 						</a>
-                    </li>
+                    </li> -->
 
 
 
@@ -119,7 +128,7 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="{{URL('public/admin/images/icon/logo.png')}}" alt="Latin Branding" />
+                    <img src="{{URL('public/admin/images/logo.png')}}" alt="Latin Branding" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -135,30 +144,54 @@
                         </li>  
 
                         <li>
-                            <a href="{{route('admin.messages')}}" >
-                                <i class="fas fa-comments"></i>Messages
-							</a>
-                        </li>
+                              <a href="{{route('admin.live_stream')}}" >
+                                  <i class="fas fa-tags"></i>Live Stream
+                              </a>
+                       </li>
 
-                        <li>
+                      <!--   <li>
                             <a href="{{route('admin.weekly')}}">
                                 <i class="fas fa-tags"></i>Weekly Offers
 							</a>
-                        </li>
+                        </li> -->
 
                        <li>
                         <a href="{{route('admin.free_events')}}">
-                          <i class="fa fa-calendar" aria-hidden="true"></i>Free Events
+                          <i class="fa fa-calendar" aria-hidden="true"></i>Events
 						</a>
                     </li>
 
-                      <li>
+                  <li>
+                    <a href="{{route('admin.free_events1')}}">
+                      <i class="fa fa-calendar" aria-hidden="true"></i>Events 1
+                    </a>
+                </li>
+
+                                   <li>
+                            <a href="{{route('admin.short')}}">
+                                <i class="fas fa-tags"></i>Short Videos
+                            </a>
+                        </li>
+
+
+                     <li>
+                        <a href="{{route('admin.vip_training')}}">
+                            <i class="fa fa-user-circle" ></i>Full Videos
+                        </a>
+
+                       
+                     <li>
+                        <a href="{{route('admin.change_picture')}}">
+                            <i class="fas fa-star"></i>Change Picture
+                        </a>
+                    </li>
+                  <!--     <li>
                         <a href="{{route('admin.free_training')}}">
                             <i class="fa fa-user-circle"></i>Free Trainings
 						</a>
-                    </li>
+                    </li> -->
 
-                      <li>
+           <!--            <li>
                         <a href="{{route('admin.vip_training')}}">
                             <i class="fas fa-star"></i>Vip Trainings
 						</a>
@@ -168,13 +201,13 @@
                             <a href="{{route('admin.news')}}">
                             <i class="fa fa-newspaper-o"></i>News
 						</a>
-                    </li>
+                    </li> -->
 
-                    <li>
+            <!--         <li>
                         <a href="{{route('admin.addvip')}}">
                             <i class="fa fa-user-plus"></i>Register VIP
 						</a>
-                    </li>
+                    </li> -->
 
                      </ul>
                 </nav>
@@ -311,31 +344,26 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="{{URL('public/admin/images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                            <img src="{{URL('public/admin/images/icon/default-avatar.png')}}" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Pablo Torres</a>
+                                            <a class="js-acc-btn" href="#">Monica</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="{{URL('public/admin/images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                                        <img src="{{URL('public/admin/images/icon/default-avatar.png')}}" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Pablo Torres</a>
+                                                        <a href="#">Monica</a>
                                                     </h5>
-                                                    {{-- <span class="email">johndoe@example.com</span> --}}
+                                                   <span class="email">monica@gmail.com</span> 
                                                 </div>
                                             </div>
-                                            {{-- <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
-                                                </div>
-                                            </div> --}}
+                                        
                                             <div class="account-dropdown__footer">
                                                 <a href="{{route('admin.logout')}}">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
@@ -362,6 +390,10 @@
     <!-- Bootstrap JS-->
     <script src="{{URL('public/admin/vendor/bootstrap-4.1/popper.min.js')}}"></script>
     <script src="{{URL('public/admin/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+
+
     <!-- Vendor JS       -->
     <script src="{{URL('public/admin/vendor/slick/slick.min.js')}}">
     </script>
@@ -383,7 +415,13 @@
 	<script src="{{URL('public/admin/js/main.js')}}"></script>
 	<script src="{{URL('public/admin/js/sweetalert.min.js')}}"></script>
 	<script src="{{URL('public/admin/js/jquery.validate.min.js')}}"></script>
-     <script src="{{URL('public/admin/js/socket.io.js')}}"></script>
+	<script src="{{URL('public/admin/js/socket.io.js')}}"></script>
+    <script type="text/javascript">
+        $(document).on('click','#cke_desc a, .cke_notification_close, .cke_dialog_ui_button_cancel, .cke_dialog_close_button, .cke_dialog_ui_button_ok',function(){
+            $('body').removeClass('fade-out');
+        });
+    </script>
+	
 
     @yield('script')
 

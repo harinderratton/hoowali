@@ -8,14 +8,17 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\weekly;
 use App\free_events;
+use App\free_events1;
 use App\fcm;
 use App\tokens;
 use App\free_training;
 use App\vip;
 use App\news;
+use App\live_stream;
 use App\vip_users;
 use App\chat;
-
+use App\short;
+use App\picture;
 
 class admin extends Controller
 {
@@ -63,17 +66,23 @@ class admin extends Controller
 
       $lastchat= chat::orderBy('id','desc')->limit(1)->first();
 
-      //     echo'<pre>';
-      // print_r($lastchat); 
-      // die;
-
-      if($lastchat->sender_id!=1){
+      if($lastchat!=null){
+ $singlechat= chat::where('sender_id',$lastchat->sender_id)->orwhere('reciever_id',$lastchat->sender_id)->get();
+ 
+           if($lastchat->sender_id!=1){
         $lastchatid= $lastchat->sender_id;
+        
       }
       else{
         $lastchatid= $lastchat->reciever_id;
-      }      
-      $singlechat= chat::where('sender_id',$lastchatid)->orwhere('reciever_id',$lastchatid)->get();
+      }
+
+      }else{
+        $lastchatid=[];
+        $singlechat=[];
+      }
+         
+     
 
       return view('admin.chat',array('chats'=>$chats,'singlechat'=> $singlechat,'lastchatid'=>$lastchatid));
     }
@@ -120,6 +129,11 @@ class admin extends Controller
     {
       return view('admin.events');
     }
+    
+    public function free_events1(Request $request)
+       {
+         return view('admin.events1');
+       }
 
        public function add_free_events(Request $request)
     {
@@ -136,6 +150,23 @@ class admin extends Controller
     echo json_encode($response);
     
     }
+    
+      public function add_free_events1(Request $request)
+    {
+     $response=[];
+     $query= free_events1::insert(['title'=>$request->title,'descr'=>$request->desc]);
+     if($query){
+            $response['status']=1;
+            $response['msg']='Event has been published';
+     }
+     else{
+            $response['status']=0;
+            $response['msg']='Server error';
+     }
+    echo json_encode($response);
+    
+    }
+    
 
        public function delete_free_events(Request $request)
     {
@@ -297,7 +328,7 @@ class admin extends Controller
 				);
 				$fields = json_encode ( $fields );
 				$headers = array (
-				        'Authorization: key=' . "AAAAI9nm6H8:APA91bHCsyVvMiRSYsr3dyXu9G5ufZo7EN5e-K4DnATlGKzObAAVxkPM5nhg0jhTyA0KFjqdcY1zjyT6ZZ2oya4iq2srM7Quu2aRxbSeVgAo4cEscCk_QewSvkLtUTmLC2Z0evsMRgfK",
+				        'Authorization: key=' . "AAAAAuhfqaM:APA91bE1iYLoIQRCFMFhlzMX6kRYvlvZsgJa38z8cbWbfVW6x35m51b8ee3vnCqSlMwLd1ZhSDmJNEeXHA1O2jV58nmuS7kDjpvYPrxk_2QfcpDe8DTUGyxfIoOmgwF4o",
 				        'Content-Type: application/json'
 				);
 
@@ -470,6 +501,8 @@ class admin extends Controller
     {
       $response=[];   
       $query= vip::where('id',$request->id)->delete();
+      print_r($query);
+      die;
       if($query){     
        $response['status']=1;
        $response['msg']='Training has been deleted';
@@ -502,9 +535,129 @@ class admin extends Controller
      echo json_encode($response);
     }
 
-                  public function privacy_policy(Request $request)
+        public function privacy_policy(Request $request)
     {
-       return view('admin.privacy_policy');
+    return view('admin.privacy_policy');
+    }
+
+
+
+////church app
+   public function short(Request $request)
+    {
+      return view('admin.short'); 
+    
+    }
+
+        public function add_short(Request $request)
+    {
+            $response=[];   
+            $query= short::insert(['title'=>$request->title,'descr'=>$request->desc,'video'=>$request->video]);           
+           
+            if($query){
+              $response['status'] =1;
+              $response['msg'] ='Training is published';
+
+            }
+            else{
+              $response['status'] =0;
+              $response['msg'] ='Server error';
+            }
+            
+            echo json_encode($response);       
+          
+     
+    
+    }
+
+  public function short_list(Request $request)
+    {
+      $query=  short::get();
+      return view('admin.short_list',array('data'=>$query));
+    }
+
+               public function delete_short(Request $request)
+    {
+      $response=[];   
+      $query= short::where('id',$request->id)->delete();
+      if($query){     
+       $response['status']=1;
+       $response['msg']='Training has been deleted';
+      }
+      else{     
+       $response['status']=0;
+       $response['msg']='Server error';
+      }
+     echo json_encode($response);
+    }
+
+ public function change_picture(Request $request)
+    {
+      return view('admin.change-picture');
+    }
+
+  public function upload_picture(Request $request)
+    {
+        $response=[];   
+        $random = Str::random(4);              
+        $video =$request->file('video');
+        $name =time().$random.$request->video->getClientOriginalName();
+        $real_name= preg_replace("/[^a-z0-9\_\-\.]/i", '',$name); // Removes special chars.
+        $destinationPath = public_path('/free_videos');
+        $upload= $video->move($destinationPath,$real_name);
+        $query= picture::insert(['picture'=>$real_name]);
+
+        if($query){     
+         $response['status']=1;
+         $response['msg']='Picture has been uploaded';
+        }
+        else{     
+         $response['status']=0;
+         $response['msg']='Server error';
+        }
+
+         echo json_encode($response);
+    }
+    
+    ////
+    
+    public function live_stream(Request $request)
+    {
+      $query=  live_stream::orderBy('id','desc')->first();
+           return view('admin.live_stream',array('data'=>$query));
+    }
+
+       public function add_live_stream(Request $request)
+    {
+     $response=[];
+     $query= live_stream::insert(['title'=>$request->title,'descr'=>$request->desc,'video'=>$request->video]);
+     if($query){
+            $response['status']=1;
+            $response['msg']='Video has been published';
+     }
+     else{
+            $response['status']=0;
+            $response['msg']='Server error';
+     }
+    echo json_encode($response);
+    
+    }
+
+           public function delete_live_stream(Request $request)
+    {
+     
+      $response=[];
+        
+         $query= live_stream::where('id',$request->id)->delete();
+         if($query){
+          $response['status']=1;
+          $response['msg']='Video has been deleted';
+         }
+         else{
+          $response['status']=0;
+          $response['msg']='Server error';
+         }
+        echo json_encode($response);
     }
 
 

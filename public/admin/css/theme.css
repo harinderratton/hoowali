@@ -344,7 +344,7 @@ section {
 }
 
 .login-content {
-    background: #fff;
+    background: #607d8b;
     padding: 30px 30px 20px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -1141,7 +1141,7 @@ section {
 
 /* ----- Header ----- */
 .header-desktop {
-    background: #f5f5f5;
+    background: #607D8B;
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
@@ -1546,7 +1546,7 @@ section {
 }
 
 .menu-sidebar .logo {
-    background: #f5f5f5;
+    background: #607D8B;
     height: 75px;
     padding: 0 35px;
     display: -webkit-box;
@@ -1577,6 +1577,7 @@ section {
 }
 
 .menu-sidebar__content {
+     background-color: #6e91a3;
     position: relative;
     height: -webkit-calc(100vh - 75px);
     height: -moz-calc(100vh - 75px);
@@ -1590,7 +1591,7 @@ section {
 
 .navbar-sidebar .navbar__list li a {
     display: block;
-    color: #555;
+   color: #fffbfb;
     font-size: 16px;
     padding: 15px 0;
 }
@@ -1620,6 +1621,7 @@ section {
 
 .header-mobile .header-mobile__bar {
     padding: 15px 0;
+    background-color: #607D8B;
 }
 
 .header-mobile .header-mobile-inner {
@@ -14619,7 +14621,7 @@ section {
     width: 100%;
 }	
 .menu-sidebar .logo a img {
-    width: 100px;
+    width: 150px;
 }
 .au-inbox-wrap.new-chts-sm .au-message, .au-inbox-wrap.new-chts-sm .au-chat {
     width: 100%;
@@ -14794,7 +14796,7 @@ button.au-attacmnt {
     top: 68px;
 }
 .header-mobile-inner a.logo img {
-    width: 70px;
+   width: 147px;
 }	
 .header-button {
     margin-top: 15px;
